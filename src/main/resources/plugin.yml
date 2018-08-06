@@ -1,0 +1,5 @@
+name: TNT
+version: "1.0"
+api: ["1.0.6"]
+author: PetteriM1
+main: idk.plugin.tnt.Main
