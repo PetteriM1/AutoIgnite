@@ -5,10 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>idk.plugin.tnt</groupId>
-    <artifactId>TNT</artifactId>
-    <version>1.0</version>
+    <artifactId>AutoIgnite</artifactId>
+    <version>2.0</version>
     <build>
-        <defaultGoal>install</defaultGoal>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <plugins>
             <plugin>
@@ -27,7 +26,7 @@
                 <filtering>true</filtering>
                 <directory>${basedir}/src/main/resources/</directory>
                 <includes>
-                    <include>plugin.yml</include>
+                    <include>*.yml</include>
                 </includes>
             </resource>
         </resources>
