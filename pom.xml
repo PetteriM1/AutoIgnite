@@ -3,10 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>idk.plugin.tnt</groupId>
+    <groupId>petterim1.tntautoignite</groupId>
     <artifactId>AutoIgnite</artifactId>
-    <version>2.0</version>
+    <version>2.1.0</version>
     <build>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <plugins>
@@ -34,7 +33,7 @@
     <repositories>
          <repository>
              <id>nukkit-repo</id>
-             <url>https://repo.nukkitx.com/main/</url>
+             <url>https://repo.opencollab.dev/main/</url>
          </repository>
      </repositories>
      <dependencies>

@@ -2,7 +2,7 @@ name: AutoIgnite
 version: "${pom.version}"
 api: ["1.0.6"]
 author: PetteriM1
-main: idk.plugin.tnt.Main
+main: petterim1.tntautoignite.Main
 
 permissions:
   tnt.autoignite:

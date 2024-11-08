@@ -1,6 +1,7 @@
-package idk.plugin.tnt;
+package petterim1.tntautoignite;
 
 import cn.nukkit.Player;
+import cn.nukkit.event.EventPriority;
 import cn.nukkit.nbt.tag.DoubleTag;
 import cn.nukkit.entity.item.EntityPrimedTNT;
 import cn.nukkit.nbt.tag.FloatTag;
@@ -12,7 +13,6 @@ import cn.nukkit.block.BlockTNT;
 import cn.nukkit.event.block.BlockPlaceEvent;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
-import cn.nukkit.network.protocol.LevelEventPacket;
 import cn.nukkit.plugin.PluginBase;
 
 public class Main extends PluginBase implements Listener {
@@ -26,7 +26,7 @@ public class Main extends PluginBase implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
     }
 
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onBlockPlace(BlockPlaceEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission("tnt.autoignite")) {
@@ -44,9 +44,10 @@ public class Main extends PluginBase implements Listener {
                         .putList(new ListTag<FloatTag>("Rotation")
                                 .add(new FloatTag("", 0))
                                 .add(new FloatTag("", 0)))
-                        .putShort("Fuse", fuse);
-                new EntityPrimedTNT(b.getLevel().getChunk(b.getFloorX() >> 4, b.getFloorZ() >> 4), nbt).spawnToAll();
-                b.getLevel().addLevelEvent(b, LevelEventPacket.EVENT_SOUND_TNT);
+                        .putByte("Fuse", fuse);
+
+                Entity.createEntity(EntityPrimedTNT.NETWORK_ID, b.getLevel().getChunk(b.getChunkX(), b.getChunkZ()), nbt).spawnToAll();
+
                 e.setCancelled(true);
                 if (!p.isCreative()) {
                     p.getInventory().decreaseCount(p.getInventory().getHeldItemIndex());
